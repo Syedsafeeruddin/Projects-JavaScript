@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Eight</title>
+    <style>
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -4%;
+            gap: 5px;
+            height: 100px;
+        }
+        button, input{
+            border: 2px solid black;
+            cursor: pointer;
+        }
+        body{
+            background-color: #313131;
+        }
+        h1{
+            margin-left: 27%;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter color by name, hexcode or color code</h1>
+    <div>
+        <input type="text" id="colorInput">
+        <button id="submitButton">Submit</button>
+    </div>
+
+    <script>
+        const colorInput = document.getElementById('colorInput');
+        const submitButton = document.getElementById('submitButton');
+        const body = document.querySelector('body');
+
+        function isValidColor(color) {
+            const div = document.createElement('div')
+            div.style.color = color;
+            return div.style.color !== '';
+        }
+
+        submitButton.addEventListener('click', () => {
+            const colorValue = colorInput.value;
+            if(isValidColor(colorValue)){
+                body.style.backgroundColor = colorValue;
+            }
+            else{
+                alert('Enter a valid CSS Color')
+            }
+        })
+    </script>
+</body>
+</html>
